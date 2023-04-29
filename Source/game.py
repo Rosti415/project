@@ -5,7 +5,7 @@ import pygame
 import Source.constants as constants
 
 from Source.mario import Mario
-
+from Source.wall import Wall
 
 class Game:
     def __init__(self):
@@ -15,7 +15,13 @@ class Game:
         self.mario = Mario((constants.MARIO_WIDTH, constants.MARIO_HEIGHT), (constants.START_X, constants.START_Y),
                            5, 3, constants.MARIO_IMAGE)
 
+        self.wall = Wall((constants.WALL_WIDTH,constants.WALL_HEIGHT),(constants.START_X,constants.START_Y),
+            constants.WALL_IMAGE
+        )
+
         pygame.display.set_caption('Mario')
+
+
 
     def run(self):
         while True:
@@ -26,6 +32,7 @@ class Game:
 
             self.screen.blit(constants.BACKGROUND_IMAGE, (0, 0))
             self.mario.draw(self.screen)
+            self.wall.draw(self.screen)
             self.mario.move(pygame.key.get_pressed())
 
             pygame.display.update()

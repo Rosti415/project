@@ -6,8 +6,8 @@ from Source.sprite import Sprite
 
 
 class Mario(Sprite):
-    def __init__(self, size: tuple[int, int], start_coordinates: tuple[int, int], speed: int, health: int,
-                 image: pygame.Surface | None):
+    def __init__(self, size, start_coordinates, speed: int, health: int,
+                 image):
         super().__init__(size, start_coordinates, speed, health, image)
 
     def move(self, key_pressed: pygame.key.ScancodeWrapper) -> None:
