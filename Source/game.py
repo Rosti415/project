@@ -15,10 +15,11 @@ class Game:
         self.mario = Mario((constants.MARIO_WIDTH, constants.MARIO_HEIGHT), (constants.START_X, constants.START_Y),
                            5, 3, constants.MARIO_IMAGE)
 
-        self.wall = Wall((constants.WALL_WIDTH,constants.WALL_HEIGHT),(constants.START_X,constants.START_Y),
+        self.wall_list = [
+            wall = Wall((constants.WALL_WIDTH,constants.WALL_HEIGHT),(constants.START_X,constants.START_Y),
             constants.WALL_IMAGE
-        )
-
+                                ),
+            ]
         pygame.display.set_caption('Mario')
 
 
