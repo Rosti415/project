@@ -5,6 +5,6 @@ class Wall(Tiles):
     def __init__(self, size, start_coordinates, image):
         super().__init__(size, start_coordinates, image)
 
-class PIN(Tiles):
+class Pin(Tiles):
     def __init__(self, size, start_coordinates, image):
         super().__init__(size, start_coordinates, image)

@@ -25,6 +25,11 @@ class Sprite:
         self._rect_.x = x
         self._rect_.y = y
 
+    def fall(self):
+        if self.get_coordinates()[1] < 400:
+            self.change_coordinates(y=5)
+    def jump(self):
+        self.change_coordinates(1,-150)
     def change_coordinates(self, x=0, y=0) -> None:
         self._rect_.x += x
         self._rect_.y += y
