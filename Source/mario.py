@@ -13,5 +13,5 @@ class Mario(Sprite):
     def move(self, key_pressed: pygame.key.ScancodeWrapper) -> None:
         if self.get_coordinates()[0] > 0 and key_pressed[pygame.K_a]:
             self.change_coordinates(x=-self._speed_)
-        if self.get_coordinates()[1] < constants.WIDTH - self._rect_.width and key_pressed[pygame.K_d]:
+        if self.get_coordinates()[1] < constants.WIDTH - self.rect_.width and key_pressed[pygame.K_d]:
             self.change_coordinates(x=self._speed_)

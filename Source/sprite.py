@@ -4,13 +4,13 @@ import pygame
 class Sprite:
     def __init__(self, size=(0, 0), start_coordinates=(0, 0),
                  speed: int = 0, health: int = 0, image=None):
-        self._rect_ = pygame.rect.Rect(*start_coordinates, *size)
+        self.rect_ = pygame.rect.Rect(*start_coordinates, *size)
         self._speed_ = speed
         self._health_ = health
         self._image_ = image
 
     def get_coordinates(self):
-        return self._rect_.x, self._rect_.y
+        return self.rect_.x, self.rect_.y
 
     def get_image(self) -> pygame.Surface:
         return self._image_
@@ -22,8 +22,8 @@ class Sprite:
         return self._speed_
 
     def set_coordinates(self, x: int, y: int) -> None:
-        self._rect_.x = x
-        self._rect_.y = y
+        self.rect_.x = x
+        self.rect_.y = y
 
     def fall(self):
         if self.get_coordinates()[1] < 400:
@@ -31,8 +31,8 @@ class Sprite:
     def jump(self):
         self.change_coordinates(1,-150)
     def change_coordinates(self, x=0, y=0) -> None:
-        self._rect_.x += x
-        self._rect_.y += y
+        self.rect_.x += x
+        self.rect_.y += y
 
     def draw(self, surface: pygame.Surface) -> None:
         surface.blit(self._image_, self.get_coordinates())

@@ -15,6 +15,8 @@ class Game:
         self.screen = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT))
         self.clock = pygame.time.Clock()
 
+        self.current_background = constants.BACKGROUND_IMAGE
+
         self.mario = Mario((constants.MARIO_WIDTH, constants.MARIO_HEIGHT), (constants.START_X, constants.START_Y),
                            5, 3, constants.MARIO_IMAGE)
 
@@ -46,23 +48,23 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-                if self.mario._rect_.collidelist([lava._rect_ for lava in self.lava_list]) != -1:
-                    self.mario._rect_.x = 100
-                    self.mario._rect_.y = 100
-                if self.mario._rect_.collidelist([Pin._rect_ for Pin in self.pin_list]) != -1:
-                    self.mario._rect_.x = 100
-                    self.mario._rect_.y = 100
-                collision = self.mario._rect_.collidelist([wall._rect_ for wall in self.wall_list])
-                if collision != -1:
-                    if self.wall_list[collision]._rect_.bottom == self.mario._rect_.top:
-                        ...
+                self.screen.blit(self.current_background, (0, 0))
+                if self.mario.get_coordinates()[0] > 900:
+                    print(1)
+                    self.current_background = constants.BACKGROUND_SKY_IMAGE
 
+                if self.mario.rect_.collidelist([lava.rect_ for lava in self.lava_list]) != -1:
+                    self.mario.rect_.x = 100
+                    self.mario.rect_.y = 100
+                if self.mario.rect_.collidelist([Pin.rect_ for Pin in self.pin_list]) != -1:
+                    self.mario.rect_.x = 100
+                    self.mario.rect_.y = 100
 
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE:
                         self.mario.jump()
-
-            self.mario.fall()
+            if self.mario.rect_.collidelist([wall.rect_ for wall in self.wall_list]) == -1:
+                self.mario.fall()
 
             self.screen.blit(constants.BACKGROUND_IMAGE, (0, 0))
             self.mario.draw(self.screen)
