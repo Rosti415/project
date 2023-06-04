@@ -12,14 +12,14 @@ LAVA_WIDTH, LAVA_HEIGHT = 400, 125
 LAVA_X, LAVA_Y = 500, 450
 
 BACKGROUND_IMAGE = pygame.transform.scale(
-    pygame.image.load(r'C:\Users\User\Documents\GitHub\project\Assets\sky_mario.jpeg'), (WIDTH, HEIGHT))
+    pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\sky_mario.jpeg'), (WIDTH, HEIGHT))
 BACKGROUND_SKY_IMAGE = pygame.transform.scale(
-    pygame.image.load(r'C:\Users\User\Documents\GitHub\project\Assets\sky.jpeg'), (WIDTH, HEIGHT))
+    pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\sky.jpeg'), (WIDTH, HEIGHT))
 WALL_IMAGE = pygame.transform.scale(
-    pygame.image.load(r"C:\Users\User\Documents\GitHub\project\Assets\wall.png"), (WALL_WIDTH, WALL_HEIGHT))
+    pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\wall-removebg-preview.png"), (WALL_WIDTH, WALL_HEIGHT))
 MARIO_IMAGE = pygame.transform.scale(
-    pygame.image.load(r"C:\Users\User\Documents\GitHub\project\Assets\mario.png"), (MARIO_WIDTH, MARIO_HEIGHT))
+    pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\mario.png"), (MARIO_WIDTH, MARIO_HEIGHT))
 PIN_IMAGE = pygame.transform.scale(
-    pygame.image.load(r"C:\Users\User\Documents\GitHub\project\Assets\pin.png"), (PIN_WIDTH, PIN_HEIGHT))
+    pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\pin.png"), (PIN_WIDTH, PIN_HEIGHT))
 LAVA_IMAGE = pygame.transform.scale(
-    pygame.image.load(r'C:\Users\User\Documents\GitHub\project\Assets\lava.jpg'), (LAVA_WIDTH, LAVA_HEIGHT))
+    pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\lava.jpg'), (LAVA_WIDTH, LAVA_HEIGHT))
