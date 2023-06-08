@@ -49,7 +49,7 @@ class Game:
                     sys.exit()
 
                 self.screen.blit(self.current_background, (0, 0))
-                if self.mario.get_coordinates()[0] > 900:
+                if self.mario.get_coordinates()[0] > 850:
                     print(1)
                     self.current_background = constants.BACKGROUND_SKY_IMAGE
 
@@ -59,10 +59,14 @@ class Game:
                 if self.mario.rect_.collidelist([Pin.rect_ for Pin in self.pin_list]) != -1:
                     self.mario.rect_.x = 100
                     self.mario.rect_.y = 100
-
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE:
-                        self.mario.jump()
+                action_time = 2000
+                last_action_time = 0
+                current_time = pygame.time.get_ticks()
+                if current_time - last_action_time >= action_time:
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_SPACE:
+                            self.mario.jump()
+                    last_action_time = current_time
             if self.mario.rect_.collidelist([wall.rect_ for wall in self.wall_list]) == -1:
                 self.mario.fall()
 
