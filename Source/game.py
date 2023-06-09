@@ -41,12 +41,34 @@ class Game:
 
         pygame.display.set_caption('Mario')
 
+        self.jumping = False
+        self.Y_GRAVITY = 0.6
+        self.JUMP_HEIGHT = 20
+        self.Y_VELOCITY = self.JUMP_HEIGHT
+        self.mario_rect = constants.MARIO_IMAGE.get_rect(center=(constants.START_X, constants.START_Y))
     def run(self):
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+            keys_pressed = pygame.key.get_pressed()
+
+            if keys_pressed[pygame.K_SPACE]:
+                self.jumping = True
+            if self.jumping:
+                constants.START_Y -= self.Y_VELOCITY
+                self.Y_VELOCITY -= self.Y_GRAVITY
+                if self.Y_VELOCITY < -self.JUMP_HEIGHT:
+                    self.jumping = False
+                    self.Y_VELOCITY = self.JUMP_HEIGHT
+                mario_rect = constants.MARIO_JUMPING_IMAGE.get_rect(center=(constants.START_X, constants.START_Y))
+                self.screen.blit(constants.MARIO_JUMPING_IMAGE, mario_rect)
+            else:
+                mario_rect = constants.MARIO_IMAGE.get_rect(center=(constants.START_X,constants.START_Y))
+                self.screen.blit(constants.MARIO_IMAGE, mario_rect)
+
+
 
                 self.screen.blit(self.current_background, (0, 0))
                 if self.mario.get_coordinates()[0] > 850:
@@ -59,7 +81,7 @@ class Game:
                 if self.mario.rect_.collidelist([Pin.rect_ for Pin in self.pin_list]) != -1:
                     self.mario.rect_.x = 100
                     self.mario.rect_.y = 100
-                action_time = 2000
+                '''action_time = 2000
                 last_action_time = 0
                 current_time = pygame.time.get_ticks()
                 if current_time - last_action_time >= action_time:
@@ -68,7 +90,7 @@ class Game:
                             self.mario.jump()
                     last_action_time = current_time
             if self.mario.rect_.collidelist([wall.rect_ for wall in self.wall_list]) == -1:
-                self.mario.fall()
+                self.mario.fall()'''
 
             self.screen.blit(constants.BACKGROUND_IMAGE, (0, 0))
             self.mario.draw(self.screen)

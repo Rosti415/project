@@ -21,6 +21,8 @@ WALL_IMAGE = pygame.transform.scale(
     pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\wall-removebg-preview.png"), (WALL_WIDTH, WALL_HEIGHT))
 MARIO_IMAGE = pygame.transform.scale(
     pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\mario.png"), (MARIO_WIDTH, MARIO_HEIGHT))
+MARIO_JUMPING_IMAGE = pygame.transform.scale(
+    pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\mario_jumping.png"),(MARIO_WIDTH,MARIO_HEIGHT))
 PIN_IMAGE = pygame.transform.scale(
     pygame.image.load(r"C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\pin.png"), (PIN_WIDTH, PIN_HEIGHT))
 LAVA_IMAGE = pygame.transform.scale(
