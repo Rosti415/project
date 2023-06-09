@@ -19,7 +19,7 @@ class Game:
 
         self.mario = Mario((constants.MARIO_WIDTH, constants.MARIO_HEIGHT), (constants.START_X, constants.START_Y),
                            5, 3, constants.MARIO_IMAGE)
-
+        self.ok = True
         self.wall_list = [
             Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (constants.WALL_X, constants.WALL_Y),
                  constants.WALL_IMAGE),
@@ -39,6 +39,15 @@ class Game:
                  constants.LAVA_IMAGE),
         ]
 
+        '''class Object:
+            all_objects = [self.wall_list,
+                           self.pin_list,
+                           self.lava_list,]
+            def __init__(self, x, y):
+                self.x = x
+                self.y = y
+                Object.all_objects.append(self)'''
+
         pygame.display.set_caption('Mario')
 
 
@@ -54,8 +63,14 @@ class Game:
 
                 self.screen.blit(self.current_background, (0, 0))
                 if self.mario.get_coordinates()[0] > 850:
-                    print(1)
+                    self.ok = False
                     self.current_background = constants.BACKGROUND_SKY_IMAGE
+                    self.mario.change_coordinates(constants.START_X,constants.START_Y)
+                    self.wall_list.clear()
+                    self.pin_list.clear()
+                    self.lava_list.clear()
+
+
 
                 if self.mario.rect_.collidelist([lava.rect_ for lava in self.lava_list]) != -1:
                     self.mario.rect_.x = 100
@@ -73,8 +88,8 @@ class Game:
                     self.last_action_time = self.current_time
             if self.mario.rect_.collidelist([wall.rect_ for wall in self.wall_list]) == -1:
                 self.mario.fall()
-
-            self.screen.blit(constants.BACKGROUND_IMAGE, (0, 0))
+            if self.ok:
+                self.screen.blit(constants.BACKGROUND_IMAGE, (0, 0))
             self.mario.draw(self.screen)
             for wall in self.wall_list:
                 wall.draw(self.screen)
