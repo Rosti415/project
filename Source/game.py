@@ -30,16 +30,39 @@ class Background:
             constants.BACKGROUND_SKY_IMAGE: [
                 Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (15, 200),
                      constants.WALL_IMAGE),
-                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (250, 200),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (250, 250),
                      constants.WALL_IMAGE),
                 Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (485, 200),
                      constants.WALL_IMAGE),
-                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (750, 200),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (750, 250),
                      constants.WALL_IMAGE), ],
 
             constants.BACKGROUND_FINAL_IMAGE: [
-                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (15, 200),
-                     constants.WALL_IMAGE), ],
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (0, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (175, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (355, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (535, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (715, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (85, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (265, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (445, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (625, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (805, 450),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (200, 350),
+                     constants.WALL_IMAGE),
+                Wall((constants.WALL_WIDTH, constants.WALL_HEIGHT), (400, 350),
+                     constants.WALL_IMAGE),
+            ],
 
         }
         self.pins = {
@@ -56,7 +79,10 @@ class Background:
                      constants.LAVA_IMAGE),
             ],
             constants.BACKGROUND_SKY_IMAGE: [],
-            constants.BACKGROUND_FINAL_IMAGE: [],
+            constants.BACKGROUND_FINAL_IMAGE: [
+                lava((constants.LAVA_WIDTH, constants.LAVA_HEIGHT), (150,450),
+                     constants.LAVA_IMAGE),
+            ],
         }
 
     def next(self):
@@ -121,7 +147,7 @@ class Game:
 
             if self.mario.get_coordinates()[0] > 850 and self.background.get_current_index() < 2:
                 self.background.next()
-                self.mario.set_coordinates(150, self.mario.get_coordinates()[1])
+                self.mario.set_coordinates(60, self.mario.get_coordinates()[1])
 
             if self.mario.get_coordinates()[0] < 50 and self.background.get_current_index() > 0:
                 self.background.previous()
