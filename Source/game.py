@@ -8,6 +8,7 @@ from Source.mario import Mario
 from Source.wall import Wall
 from Source.wall import Pin
 from Source.wall import lava
+from Source.wall import castle
 
 
 class Background:
@@ -80,8 +81,16 @@ class Background:
             ],
             constants.BACKGROUND_SKY_IMAGE: [],
             constants.BACKGROUND_FINAL_IMAGE: [
-                lava((constants.LAVA_WIDTH, constants.LAVA_HEIGHT), (150,450),
+                lava((constants.LAVA_WIDTH, constants.LAVA_HEIGHT), (150, 450),
                      constants.LAVA_IMAGE),
+            ],
+        }
+        self.castles = {
+            constants.BACKGROUND_IMAGE: [],
+            constants.BACKGROUND_SKY_IMAGE: [],
+            constants.BACKGROUND_FINAL_IMAGE: [
+                castle((constants.CASTLE_WIDTH, constants.CASTLE_HEIGHT), (750, 335),
+                       constants.CASTLE_IMAGE),
             ],
         }
 
@@ -99,7 +108,7 @@ class Background:
 
     def get_objects(self):
         return self.walls[self.current_screen_image], \
-            self.pins[self.current_screen_image], self.lavas[self.current_screen_image]
+            self.pins[self.current_screen_image], self.lavas[self.current_screen_image], self.castles[self.current_screen_image]
 
     def get_current_screen_image(self):
         return self.current_screen_image
@@ -120,7 +129,7 @@ class Game:
         self.ok = True
 
         self.current_background = self.background.get_current_screen_image()
-        self.wall_list, self.pin_list, self.lava_list = self.background.get_objects()
+        self.wall_list, self.pin_list, self.lava_list, self.castle_list = self.background.get_objects()
 
         pygame.display.set_caption('Mario')
 
@@ -142,7 +151,7 @@ class Game:
                     self.last_action_time = self.current_time
 
             self.current_background = self.background.get_current_screen_image()
-            self.wall_list, self.pin_list, self.lava_list = self.background.get_objects()
+            self.wall_list, self.pin_list, self.lava_list, self.castle_list = self.background.get_objects()
             self.screen.blit(self.current_background, (0, 0))
 
             if self.mario.get_coordinates()[0] > 850 and self.background.get_current_index() < 2:
@@ -173,6 +182,8 @@ class Game:
                 pin.draw(self.screen)
             for l in self.lava_list:
                 l.draw(self.screen)
+            for castle in self.castle_list:
+                castle.draw(self.screen)
 
             self.mario.move(pygame.key.get_pressed())
 
