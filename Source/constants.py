@@ -1,5 +1,6 @@
 import pygame
 
+
 WIDTH, HEIGHT = 900, 500
 MARIO_WIDTH, MARIO_HEIGHT = 37, 60
 FPS = 70
@@ -35,3 +36,5 @@ LAVA_IMAGE = pygame.transform.scale(
 CASTLE_IMAGE = pygame.transform.scale(
     pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\castle.png'),
     (CASTLE_WIDTH, CASTLE_HEIGHT))
+MARIO_SOUND = (r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\mario.mp3')
+

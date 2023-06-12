@@ -2,6 +2,7 @@ import sys
 
 import pygame
 
+from pygame import mixer
 import Source.constants as constants
 
 from Source.mario import Mario
@@ -11,7 +12,9 @@ from Source.wall import lava
 from Source.wall import castle
 
 
-
+pygame.mixer.init()
+pygame.mixer.music.load(constants.MARIO_SOUND)
+pygame.mixer.music.play(-1)
 class Background:
     def __init__(self):
         self.current_screen_image = constants.BACKGROUND_IMAGE
