@@ -11,6 +11,7 @@ from Source.wall import lava
 from Source.wall import castle
 
 
+
 class Background:
     def __init__(self):
         self.current_screen_image = constants.BACKGROUND_IMAGE
@@ -140,7 +141,7 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-                self.action_time = 2000
+                self.action_time = 1000
                 self.last_action_time = 0
                 self.current_time = pygame.time.get_ticks()
 
@@ -171,6 +172,7 @@ class Game:
             if self.mario.rect_.collidelist([Pin.rect_ for Pin in self.pin_list]) != -1:
                 self.mario.set_coordinates(100, 100)
 
+
             if self.mario.rect_.collidelist([wall.rect_ for wall in self.wall_list]) == -1:
                 self.mario.fall()
 
@@ -184,6 +186,16 @@ class Game:
                 l.draw(self.screen)
             for castle in self.castle_list:
                 castle.draw(self.screen)
+            if self.mario.rect_.collidelist([castle.rect_ for castle in self.castle_list]) != -1:
+                pygame.init()
+                font = pygame.font.Font(None, 124)
+                text = font.render('Victory', True, (255, 255, 255))
+                text_rect = text.get_rect(center=(constants.WIDTH // 2, constants.HEIGHT // 2))
+                self.screen.blit(text, text_rect)
+                pygame.display.update()
+                pygame.time.wait(2000)
+                pygame.quit()
+                sys.exit()
 
             self.mario.move(pygame.key.get_pressed())
 
