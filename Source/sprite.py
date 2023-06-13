@@ -31,7 +31,7 @@ class Sprite:
         if self.get_coordinates()[1] < 400:
             self.change_coordinates(y=5)
     def jump(self):
-        self.change_coordinates(1,-180)
+        self.change_coordinates(1,-185)
         self.jump_sound.play()
     def change_coordinates(self, x=0, y=0) -> None:
         self.rect_.x += x
