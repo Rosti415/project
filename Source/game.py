@@ -130,7 +130,7 @@ class Game:
 
         self.mario = Mario((constants.MARIO_WIDTH, constants.MARIO_HEIGHT), (constants.START_X, constants.START_Y),
                            5, 3, constants.MARIO_IMAGE)
-        self.ok = True
+
 
         self.current_background = self.background.get_current_screen_image()
         self.wall_list, self.pin_list, self.lava_list, self.castle_list = self.background.get_objects()

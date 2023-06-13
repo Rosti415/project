@@ -40,10 +40,3 @@ class Sprite:
     def draw(self, surface: pygame.Surface) -> None:
         surface.blit(self._image_, self.get_coordinates())
 
-    def move(self, *args, **kwargs) -> None:
-        """Add the implementation"""
-        ...
-
-    def shoot(self, *args, **kwargs) -> None:
-        """Add the implementation"""
-        ...
