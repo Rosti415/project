@@ -37,4 +37,5 @@ CASTLE_IMAGE = pygame.transform.scale(
     pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\castle.png'),
     (CASTLE_WIDTH, CASTLE_HEIGHT))
 MARIO_SOUND = (r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\mario.mp3')
+MARIO_JUMP_SOUND = (r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\jump.mp3')
 

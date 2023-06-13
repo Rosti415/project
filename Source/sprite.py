@@ -1,4 +1,5 @@
 import pygame
+import Source.constants as constants
 
 
 class Sprite:
@@ -8,6 +9,7 @@ class Sprite:
         self._speed_ = speed
         self._health_ = health
         self._image_ = image
+        self.jump_sound = pygame.mixer.Sound(constants.MARIO_JUMP_SOUND)
 
     def get_coordinates(self):
         return self.rect_.x, self.rect_.y
@@ -29,7 +31,8 @@ class Sprite:
         if self.get_coordinates()[1] < 400:
             self.change_coordinates(y=5)
     def jump(self):
-        self.change_coordinates(1,-150)
+        self.change_coordinates(1,-180)
+        self.jump_sound.play()
     def change_coordinates(self, x=0, y=0) -> None:
         self.rect_.x += x
         self.rect_.y += y

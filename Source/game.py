@@ -136,6 +136,8 @@ class Game:
         self.wall_list, self.pin_list, self.lava_list, self.castle_list = self.background.get_objects()
 
         pygame.display.set_caption('Mario')
+        self.jump_counter = 0
+        self.jump_timer = pygame.time.get_ticks()
 
     def run(self):
         while True:
@@ -144,15 +146,15 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-                self.action_time = 1000
-                self.last_action_time = 0
                 self.current_time = pygame.time.get_ticks()
 
-                if self.current_time - self.last_action_time >= self.action_time:
+                if self.current_time - self.jump_timer >= 240:
+                    self.jump_counter = 0
                     if event.type == pygame.KEYDOWN:
-                        if event.key == pygame.K_SPACE:
+                        if event.key == pygame.K_SPACE and self.jump_counter < 2:
                             self.mario.jump()
-                    self.last_action_time = self.current_time
+                            self.jump_counter += 1
+                            self.jump_timer = self.current_time
 
             self.current_background = self.background.get_current_screen_image()
             self.wall_list, self.pin_list, self.lava_list, self.castle_list = self.background.get_objects()
