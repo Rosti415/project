@@ -11,7 +11,7 @@ PIN_X, PIN_Y = 315, 365
 PIN_WIDTH, PIN_HEIGHT = 75, 85
 LAVA_WIDTH, LAVA_HEIGHT = 400, 125
 LAVA_X, LAVA_Y = 500, 450
-CASTLE_WIDTH, CASTLE_HEIGHT = 115, 135
+CASTLE_WIDTH, CASTLE_HEIGHT = 135, 155
 
 BACKGROUND_IMAGE = pygame.transform.scale(
     pygame.image.load(r'C:\Users\akubo\OneDrive\Документи\GitHub\project\project\Assets\sky_mario.jpeg'), (WIDTH, HEIGHT))

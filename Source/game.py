@@ -93,7 +93,7 @@ class Background:
             constants.BACKGROUND_IMAGE: [],
             constants.BACKGROUND_SKY_IMAGE: [],
             constants.BACKGROUND_FINAL_IMAGE: [
-                castle((constants.CASTLE_WIDTH, constants.CASTLE_HEIGHT), (750, 335),
+                castle((constants.CASTLE_WIDTH, constants.CASTLE_HEIGHT), (730, 305),
                        constants.CASTLE_IMAGE),
             ],
         }
